@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-10">
+      <h2>ダイレクトメッセージ</h2>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th style="text-align: left; font-size: 20px;"><%= @user.name %></th>
+            <th style="text-align: right; font-size: 20px;"><%= current_user.name %></th>
+          </tr>
+        </thead>
+      </table>
+
+      <div class='chats'>
+        <% @chats.each do |chat| %>
+          <% if chat.user_id != current_user.id %>
+            <p style="text-align: left;"><%= chat.content %></p>
+          <% else %>
+            <p style="text-align: right;"><%= chat.content %></p>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div style="margin-top: 30px">
+        <%= form_with model: @chat, local: false do |f| %>
+          <%= f.text_field :content %>
+          <%= f.hidden_field :room_id %>
+          <%= f.submit "SEND", class:"btn btn-sm btn-success chat-btn" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/ec2-user/environment/Rails6-bookers2-debug-main/app/views/books/show.html.erb:41 #<Class:0x00007f8dc54416c8>#_app_views_books_show_html_erb___813508805525913165_70123438345580:
+
+    [1;34m36[0m:           <% end %>
+    [1;34m37[0m:         </tr>
+    [1;34m38[0m:       </table>
+    [1;34m39[0m:       <div>
+    [1;34m40[0m:         <p>コメント件数：<%= @book.book_comments.count %></p>
+ => [1;34m41[0m:         <% binding.pry %>
+    [1;34m42[0m:         <% @book.book_comments.each do |comment| %>
+    [1;34m43[0m:           <%= comment.user.name %>
+    [1;34m44[0m:           <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+    [1;34m45[0m:           <% if comment.user == current_user %>
+    [1;34m46[0m:             <%= link_to "削除", book_post_comment_path(comment.book_image, book_comment), method: :delete %>
+
